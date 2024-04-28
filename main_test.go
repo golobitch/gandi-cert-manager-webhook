@@ -1,12 +1,9 @@
 package main
 
 import (
+	acmetest "github.com/cert-manager/cert-manager/test/acme"
 	"os"
 	"testing"
-
-	acmetest "github.com/cert-manager/cert-manager/test/acme"
-
-	"github.com/cert-manager/webhook-example/example"
 )
 
 var (
@@ -20,22 +17,16 @@ func TestRunsSuite(t *testing.T) {
 	//
 
 	// Uncomment the below fixture when implementing your custom DNS provider
-	//fixture := acmetest.NewFixture(&customDNSProviderSolver{},
-	//	acmetest.SetResolvedZone(zone),
-	//	acmetest.SetAllowAmbientCredentials(false),
-	//	acmetest.SetManifestPath("testdata/my-custom-solver"),
-	//	acmetest.SetBinariesPath("_test/kubebuilder/bin"),
-	//)
-	solver := example.New("59351")
+	solver := &gandiDNSProviderSolver{}
 	fixture := acmetest.NewFixture(solver,
-		acmetest.SetResolvedZone("example.com."),
-		acmetest.SetManifestPath("testdata/my-custom-solver"),
-		acmetest.SetDNSServer("127.0.0.1:59351"),
-		acmetest.SetUseAuthoritative(false),
+		acmetest.SetResolvedZone(zone),
+		acmetest.SetAllowAmbientCredentials(false),
+		acmetest.SetManifestPath("testdata/gandi"),
+		//acmetest.SetBinariesPath("_test/kubebuilder/bin"),
 	)
+
 	//need to uncomment and  RunConformance delete runBasic and runExtended once https://github.com/cert-manager/cert-manager/pull/4835 is merged
-	//fixture.RunConformance(t)
+	fixture.RunConformance(t)
 	fixture.RunBasic(t)
 	fixture.RunExtended(t)
-
 }

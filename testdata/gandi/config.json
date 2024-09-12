@@ -1,6 +1,0 @@
-{
-  "personalAccessTokenSecretRef": {
-    "name": "gandi-pat-key",
-    "key": "key"
-  }
-}

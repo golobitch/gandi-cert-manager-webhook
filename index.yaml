@@ -4,9 +4,9 @@ entries:
     - apiVersion: v2
       created: "2024-09-12T20:28:18.867304845Z"
       description: A Helm chart for gandi-cert-manager-webhook
-      digest: f0d50d4260a9699dcdf875a01ab422e27e15a7b575c4b21f9f0fac7c50d836b8
+      digest: 1e085a77cc511067aff0c47859840ca7327b90f5299b78018338bd0bee767df1
       name: gandi-cert-manager-webhook
       urls:
-      - https://github.com/golobitch/gandi-cert-manager-webhook/releases/download/v0.1.2/cert-manager-webhook-gandi-v0.1.2.tgz
+      - https://github.com/interledger/gandi-cert-manager-webhook/releases/download/v0.1.2/gandi-cert-manager-webhook-0.1.2.tgz
       version: v0.1.2
 generated: "2024-09-12T14:46:42.25824+02:00"
